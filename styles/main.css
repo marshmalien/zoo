@@ -14,6 +14,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center; }
+  .animalContainer:last-of-type {
+    position: absolute;
+    top: 7vh;
+    left: 23vw; }
   .animalContainer .infoContainer {
     background: antiquewhite;
     border-radius: 6px;
@@ -25,21 +29,17 @@ body {
     padding: 4px;
     text-align: center;
     width: 40%; }
-  .animalContainer .lion {
-    background: url("../images/lion.svg");
+  .animalContainer .bat {
+    background: url("../images/bat.svg");
     height: 120px;
     width: 120px; }
   .animalContainer .snake {
     background: url("../images/snake.svg");
     height: 120px;
     width: 120px; }
-  .animalContainer .panda {
-    background: url("../images/panda.svg");
-    height: 120px;
-    width: 120px; }
   .animalContainer .elephant {
     background: url("../images/elephant.svg");
     height: 300px;
-    width: 370px; }
+    width: 300px; }
 
 /*# sourceMappingURL=main.css.map */

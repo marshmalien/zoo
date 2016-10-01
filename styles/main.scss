@@ -17,6 +17,12 @@ height: 100vh;
   justify-content: center;
   align-items: center;
 
+  &:last-of-type {
+    position: absolute;
+    top: 7vh;
+    left: 23vw;
+  }
+
   .infoContainer {
     background: antiquewhite;
     border-radius: 6px;
@@ -29,8 +35,9 @@ height: 100vh;
     text-align: center;
     width: 40%
   }
-  .lion {
-    background: url("../images/lion.svg");
+
+  .bat {
+    background: url("../images/bat.svg");
     height: 120px;
     width: 120px;
   }
@@ -40,16 +47,10 @@ height: 100vh;
     width: 120px;
 
   }
-  .panda {
-    background: url("../images/panda.svg");
-    height: 120px;
-    width: 120px;
-
-  }
   .elephant {
     background: url("../images/elephant.svg");
     height: 300px;
-    width: 370px;
+    width: 300px;
 
   }
 }

@@ -68,7 +68,7 @@ function Elephant(name, dateOfBirth, isMammal) {
 // Elephant prototype
 Elephant.prototype = Object.create(Animal.prototype);
 Elephant.prototype.hobbies = function(hobby) {
-  return "I " + this.hobby + " in my free time.";
+  return " I like to " + hobby + " in my free time.";
 };
 Elephant.prototype.mammal = function() {
   return (this.isMammal ? " I'm also a mammal." : "I'm not a mammal.");
@@ -78,7 +78,9 @@ var elephant = new Elephant("Hugo", "08/20/2014", "true");
 Elephant.prototype.toString = function() {
   var intro = "My name is " + this.name + ". " + this.saySpecies();
   var mammal = " and " + this.mammal();
-  return intro + mammal;
+  var age = this.age();
+  var hobby = this.hobbies("paint");
+  return intro + mammal + age + hobby;
 };
 elephant.buildMe();
 elephant.updateInfo();
@@ -110,3 +112,27 @@ Snake.prototype.toString = function() {
 var snake = new Snake('Slinky', "09/07/1989", 'true');
 snake.buildMe();
 snake.updateInfo();
+
+// Bat constructor
+function Bat(name, dateOfBirth, isMammal) {
+  Animal.call(this, name, dateOfBirth);
+  this.isMammal = isMammal;
+  this.species = "bat";
+}
+Bat.prototype = Object.create(Animal.prototype);
+Bat.prototype.mammal = function() {
+  return (this.isMammal ? " I'm a mammal" : "I'm not a mammal.");
+};
+Bat.prototype.fly = function() {
+  return " Flying is my specialty!";
+};
+Bat.prototype.toString = function() {
+  var intro = "My name is " + this.name + " and " + this.saySpecies() + ".";
+  var age = this.age();
+  var mammal = this.mammal() + " and my significant other gave birth to babies last year.";
+  var fly = this.fly();
+  return intro + age + mammal + fly;
+};
+var bat = new Bat('B-Man', '03/04/1947', 'true');
+bat.buildMe();
+bat.updateInfo();
