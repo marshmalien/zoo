@@ -1,3 +1,13 @@
+$(document).ready(function() {
+  console.log("WE IN");
+
+  $('.bat').click(function() {
+    console.log('You clicked on the bat');
+
+  });
+
+});
+
 // Animal constructor
 function Animal(name, dateOfBirth) {
   this.name = name;

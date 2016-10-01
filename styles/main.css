@@ -11,13 +11,14 @@ body {
   height: 100vh; }
 
 .animalContainer {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  padding: 10px; }
   .animalContainer:last-of-type {
+    left: 23vw;
     position: absolute;
-    top: 7vh;
-    left: 23vw; }
+    top: 7vh; }
   .animalContainer .infoContainer {
     background: antiquewhite;
     border-radius: 6px;
@@ -32,7 +33,15 @@ body {
   .animalContainer .bat {
     background: url("../images/bat.svg");
     height: 120px;
-    width: 120px; }
+    width: 120px;
+    animation: shimmy 3s infinite;
+    animation-direction: alternate;
+    transform: translate(20px, 10px); }
+@keyframes shimmy {
+  0% {
+    transform: translate(0, 0); }
+  100% {
+    transform: translate(20px, 50px); } }
   .animalContainer .snake {
     background: url("../images/snake.svg");
     height: 120px;
