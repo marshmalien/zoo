@@ -1,0 +1,45 @@
+body {
+  background-color: green;
+  background-image: url("../images/zooBackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+#container {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  height: 100vh; }
+
+.animalContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .animalContainer .infoContainer {
+    background: antiquewhite;
+    border-radius: 6px;
+    border: 2px solid black;
+    color: black;
+    font-family: sans-serif;
+    line-height: 3vh;
+    margin: 25px;
+    padding: 4px;
+    text-align: center;
+    width: 40%; }
+  .animalContainer .lion {
+    background: url("../images/lion.svg");
+    height: 120px;
+    width: 120px; }
+  .animalContainer .snake {
+    background: url("../images/snake.svg");
+    height: 120px;
+    width: 120px; }
+  .animalContainer .panda {
+    background: url("../images/panda.svg");
+    height: 120px;
+    width: 120px; }
+  .animalContainer .elephant {
+    background: url("../images/elephant.svg");
+    height: 300px;
+    width: 370px; }
+
+/*# sourceMappingURL=main.css.map */
