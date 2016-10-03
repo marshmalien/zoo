@@ -7,9 +7,14 @@ $(document).ready(function() {
     $(this).animate({
       left: "-=600"
     }, 2000);
+    $(this).next().toggle('slow');
   });
   $('.elephant').on('click', function() {
     $(this).toggleClass('rotated');
+    $(this).next().toggle('slow');
+  });
+  $('.bat').on('click', function() {
+    $(this).next().toggle('slow');
   });
 });
 
