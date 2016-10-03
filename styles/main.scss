@@ -39,6 +39,7 @@ height: 100vh;
 
   .bat {
     background: url("../images/bat.svg");
+    background-repeat: no-repeat;
     height: 120px;
     width: 120px;
     animation: shimmy 3s infinite;
@@ -55,14 +56,24 @@ height: 100vh;
     }
   }
   .snake {
+    // image tab instead to prevent repeat
     background: url("../images/snake.svg");
+    background-repeat: no-repeat;
     height: 120px;
     width: 120px;
+    left:0;
+    position: relative;
   }
   .elephant {
     background: url("../images/elephant.svg");
+    background-repeat: no-repeat;
     height: 300px;
     width: 300px;
+    transition: all 2s ease-in-out;
+    position: relative;
+  }
+  .rotated {
+    transform: rotate(-25deg);
 
   }
 }

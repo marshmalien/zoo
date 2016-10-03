@@ -32,6 +32,7 @@ body {
     width: 40%; }
   .animalContainer .bat {
     background: url("../images/bat.svg");
+    background-repeat: no-repeat;
     height: 120px;
     width: 120px;
     animation: shimmy 3s infinite;
@@ -44,11 +45,19 @@ body {
     transform: translate(20px, 50px); } }
   .animalContainer .snake {
     background: url("../images/snake.svg");
+    background-repeat: no-repeat;
     height: 120px;
-    width: 120px; }
+    width: 120px;
+    left: 0;
+    position: relative; }
   .animalContainer .elephant {
     background: url("../images/elephant.svg");
+    background-repeat: no-repeat;
     height: 300px;
-    width: 300px; }
+    width: 300px;
+    transition: all 2s ease-in-out;
+    position: relative; }
+  .animalContainer .rotated {
+    transform: rotate(-25deg); }
 
 /*# sourceMappingURL=main.css.map */
