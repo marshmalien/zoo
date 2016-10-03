@@ -171,7 +171,7 @@ try {
 // Elephant Test
 var daisy = new Elephant("Daisy", "01/02/2013");
 console.assert(daisy.name === "Daisy");
-console.assert(daisy.dateOfBirth === "01/02/2013")
+console.assert(daisy.dateOfBirth === "01/02/2013");
 console.assert(daisy.species === "elephant");
 console.assert(daisy.type === "mammal");
 console.assert(daisy.reproduce().includes("birth"));
@@ -186,7 +186,7 @@ console.assert(slytherin.species === "snake");
 console.assert(slytherin.type === "reptile");
 console.assert(slytherin.reproduce().includes("eggs"));
 console.assert(slytherin.ageInYears() === 28);
-console.assert(slytherin.isVenomous === true)
+console.assert(slytherin.isVenomous === true);
 
 // Bat Test
 var geneSimmons = new Bat("Gene Simmons", "01/02/2000");
