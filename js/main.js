@@ -1,6 +1,5 @@
+// jQuery Snake and Elephant Animations
 $(document).ready(function() {
-  console.log("WE IN");
-
   $('.snake').on('click', function() {
     $(this).animate({
       left: '+=600'
@@ -14,7 +13,7 @@ $(document).ready(function() {
   });
 });
 
-// Animal constructor
+// Animal Constructor
 function Animal(name, dateOfBirth) {
   // Can't create animal directly
   if (this.constructor === Animal) {
@@ -81,36 +80,41 @@ Animal.prototype.addInfo = function(content) {
 };
 
 
-// Elephant constructor
+// Elephant Constructor
 function Elephant(name, dateOfBirth) {
   Animal.call(this, name, dateOfBirth);
   this.species = "elephant";
   this.type = "mammal";
 }
-// Elephant prototype
+// Elephant Prototype
 Elephant.prototype = Object.create(Animal.prototype);
 Elephant.prototype.constructor = Elephant;
 Elephant.prototype.hobbies = function(hobby) {
+  this.hobby = hobby;
   return " I like to " + hobby + " in my free time.";
 };
+Elephant.prototype.toString = function() {
+  return Animal.prototype.toString.call(this) + ", Hobby=" + this.hobby;
+};
+Elephant.prototype.displayIntro = function() {
+  return Animal.prototype.displayIntro.call(this) + (this.hobbies(this.hobby));
+};
 var hugo = new Elephant("Hugo", "08/20/2014");
+hugo.hobbies("dance");
 hugo.buildMe();
 hugo.updateInfo();
 
 
-// Snake constructor
+// Snake Constructor
 function Snake(name, dateOfBirth, isVenomous) {
   Animal.call(this, name, dateOfBirth);
   this.isVenomous = isVenomous;
   this.species = "snake";
   this.type = "reptile";
 }
-// Snake prototype.
+// Snake Prototype.
 Snake.prototype = Object.create(Animal.prototype);
 Snake.prototype.constructor = Snake;
-Snake.prototype.prey = function(food) {
-  return " My favorite food is " + food;
-};
 Snake.prototype.toString = function() {
   return Animal.prototype.toString.call(this) + ", isVenomous=" + this.isVenomous;
 };
@@ -122,23 +126,26 @@ noodles.buildMe();
 noodles.updateInfo();
 
 
-// Bat constructor
+// Bat Constructor
 function Bat(name, dateOfBirth) {
   Animal.call(this, name, dateOfBirth);
   this.species = "bat";
   this.type = "mammal";
 }
-// Bat prototype
+// Bat Prototype
 Bat.prototype = Object.create(Animal.prototype);
 Bat.prototype.constructor = Bat;
 Bat.prototype.fly = function() {
-  return " Flying is my specialty!";
-};
-Bat.prototype.fly = function() {
-  var dist = Math.floor(Math.random() * 4 + 1);
-  return " I flew " + dist + " miles!";
+  this.dist = Math.floor(Math.random() * 4 + 1);
+  return " I flew " + this.dist + " miles!";
 };
 var bat = new Bat('B-Man', '03/04/1947', 'true');
+Bat.prototype.toString = function() {
+  return Animal.prototype.toString.call(this) + ", fly= " + this.dist + " miles";
+};
+Bat.prototype.displayIntro = function() {
+  return Animal.prototype.displayIntro.call(this) + this.fly();
+};
 bat.buildMe();
 bat.updateInfo();
 
@@ -167,14 +174,14 @@ console.assert(daisy.ageInYears() === 3);
 console.assert(daisy.hobbies("paint") === " I like to paint in my free time.");
 
 // Snake Test
-var slytherin = new Snake("Slytherin", "07/07/1988");
+var slytherin = new Snake("Slytherin", "07/07/1988", true);
 console.assert(slytherin.name === "Slytherin");
 console.assert(slytherin.dateOfBirth === "07/07/1988");
 console.assert(slytherin.species === "snake");
 console.assert(slytherin.type === "reptile");
 console.assert(slytherin.reproduce().includes("eggs"));
 console.assert(slytherin.ageInYears() === 28);
-console.assert(slytherin.prey("cricket") === " My favorite food is cricket");
+console.assert(slytherin.isVenomous === true)
 
 // Bat Test
 var geneSimmons = new Bat("Gene Simmons", "01/02/2000");
@@ -184,3 +191,4 @@ console.assert(geneSimmons.species === "bat");
 console.assert(geneSimmons.type === "mammal");
 console.assert(geneSimmons.reproduce().includes("birth"));
 console.assert(geneSimmons.ageInYears() === 16);
+console.assert(geneSimmons.fly().includes("miles"));
