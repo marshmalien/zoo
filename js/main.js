@@ -166,7 +166,7 @@ http.onload = function() {
     });
   }
 };
-http.open('GET', 'animals.json');
+http.open('GET', 'data/animals.json');
 http.send();
 
 // TEST
