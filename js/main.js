@@ -104,11 +104,6 @@ Elephant.prototype.toString = function() {
 Elephant.prototype.displayIntro = function() {
   return Animal.prototype.displayIntro.call(this) + (this.hobbies(this.hobby));
 };
-var hugo = new Elephant("Hugo", "08/20/2014");
-hugo.hobbies("dance");
-hugo.buildMe();
-hugo.updateInfo();
-
 
 // Snake Constructor
 function Snake(name, dateOfBirth, isVenomous) {
@@ -126,10 +121,6 @@ Snake.prototype.toString = function() {
 Snake.prototype.displayIntro = function() {
   return Animal.prototype.displayIntro.call(this) + (this.isVenomous ? " Watch out! I'm venomous." : "");
 };
-var noodles = new Snake('Noodles', "09/07/1989", true);
-noodles.buildMe();
-noodles.updateInfo();
-
 
 // Bat Constructor
 function Bat(name, dateOfBirth) {
@@ -144,18 +135,41 @@ Bat.prototype.fly = function() {
   this.dist = Math.floor(Math.random() * 4 + 1);
   return " I flew " + this.dist + " miles!";
 };
-var bat = new Bat('B-Man', '03/04/1947', 'true');
+
 Bat.prototype.toString = function() {
   return Animal.prototype.toString.call(this) + ", fly= " + this.dist + " miles";
 };
 Bat.prototype.displayIntro = function() {
   return Animal.prototype.displayIntro.call(this) + this.fly();
 };
-bat.buildMe();
-bat.updateInfo();
+
+// HTTP Request with vanilla JavaScript
+var http = new XMLHttpRequest();
+http.onload = function() {
+  if (http.status === 200) {
+    var jsonObject = JSON.parse(http.response);
+    var instance;
+    jsonObject.animals.forEach(function(animal) {
+      switch (animal.species) {
+        case "elephant":
+          instance = new Elephant(animal.name, animal.dateOfBirth);
+          break;
+        case "snake":
+          instance = new Snake(animal.name, animal.dateOfBirth, animal.isVenomous);
+          break;
+        case "bat":
+          instance = new Bat(animal.name, animal.dateOfBirth);
+          break;
+      }
+      instance.buildMe();
+      instance.updateInfo();
+    });
+  }
+};
+http.open('GET', 'animals.json');
+http.send();
 
 // TEST
-
 // Arrange, Act, Assert
 // Arrange - Setup. create snake or Animal
 // Act - test methods, like birth
